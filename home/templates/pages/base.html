@@ -24,10 +24,17 @@
                     <img src="{% static 'images/avt.jpg' %}" class="responsive-img" style = "max-height: 150px;" alt="">
                 </center>
             </div>
-            <div class="col-sm-10">
-                <center>
-                    <h1>Blog lam tu Django</h1>
-                </center>
+            <div class="col-sm-9">
+                <center><h1>Blog lam tu Django</h1></center>
+            </div>
+            <div class="col-sm-1">
+                {%if user.username%}
+                    <p>Xin chào {{user.username}}</p>
+                    <p><a href="{% url 'logout'%}">Đăng xuất</a></p>
+                {%else%}
+                    <p><a href="{% url 'register'%}">Đăng ký</a></p>
+                    <p><a href="{% url 'login'%}">Đăng nhập</a></p>
+                {%endif%}
             </div>
         </div>
         <br>
@@ -36,8 +43,8 @@
                 <div class="bs-sliderbar" style="background-color: #fff">
                     <ul class="nav flex-column">
                         <li class="nav-item"><a class="nav-link active" href="/">Thông tin cá nhân</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/contact">Liên hệ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'blog'%}">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'contact'%}">Liên hệ</a></li>
                       </ul>
                 </div>
             </div>
