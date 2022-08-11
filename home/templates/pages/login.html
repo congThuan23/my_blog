@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+    <html lang="en">
+    <head>
+        {% load staticfiles %}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+                
+        <!-- Boxicons CSS -->
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+                        
+    </head>
+    <body>
+        <section class="container forms">
+            <div class="form login">
+                <div class="form-content">
+                    <header>Login</header>
+                    <form action="#" method="POST">
+                        {%csrf_token%}
+                        {%for key,vaule in form.errors.items %}
+                            {{value}}
+                        {%endfor%}
+                        <div class="field input-field">
+                            <p><label>Tài khoản: </label>{{form.username}}</p>
+                        </div>
+
+                        <div class="field input-field">
+                            <p><label>Mật khẩu: </label>{{form.password}}</p>
+                        </div>
+
+                        <div class="field button-field">
+                            <input type="hidden" name='next' value="/"/>
+                        </div>
+
+                        <input type="submit" value="Login"/>
+                    </form>
+
+                    <div class="form-link">
+                        <span>Don't have an account? <a href="#" class="link signup-link">Signup</a></span>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="media-options">
+                    <a href="#" class="field facebook">
+                        <i class='bx bxl-facebook facebook-icon'></i>
+                        <span>Login with Facebook</span>
+                    </a>
+                </div>
+
+                <div class="media-options">
+                    <a href="#" class="field google">
+                        <img src="{% static 'images/google.png' %}" alt="" class="google-img">
+                        <span>Login with Google</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- JavaScript -->
+        <script src="{% static 'js/script.js' %}"></script>
+    </body>
+</html>
