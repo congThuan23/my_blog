@@ -20,28 +20,28 @@
             <div class="form login">
                 <div class="form-content">
                     <header>Login</header>
-                    <form action="#" method="POST">
+                    <form method="POST">
                         {%csrf_token%}
                         {%for key,vaule in form.errors.items %}
                             {{value}}
                         {%endfor%}
                         <div class="field input-field">
-                            <p><label>Tài khoản: </label>{{form.username}}</p>
+                            <p><label>Username: </label>{{form.username}}</p>
                         </div>
 
                         <div class="field input-field">
-                            <p><label>Mật khẩu: </label>{{form.password}}</p>
+                            <p><label>Password: </label>{{form.password}}</p>
                         </div>
+                        {% comment %} sau khi dang nhap thanh cong thi di den {% endcomment %}
+                        <input type="hidden" name="next" value="/"/>
 
                         <div class="field button-field">
-                            <input type="hidden" name='next' value="/"/>
+                            <input type="submit" value="Login"/>
                         </div>
-
-                        <input type="submit" value="Login"/>
                     </form>
 
                     <div class="form-link">
-                        <span>Don't have an account? <a href="#" class="link signup-link">Signup</a></span>
+                        <span>Don't have an account? <a href="{% url 'register' %}" class="">Signup</a></span>
                     </div>
                 </div>
 
