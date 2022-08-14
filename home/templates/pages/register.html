@@ -21,12 +21,29 @@
                     <header>Register an account</header>
                     <form action='.' method="POST">
                         {% csrf_token%}
-                        {{form.as_p}}
-                        <input type="submit" value="Sign up"></input>
+                        <div class="field input-field">
+                            <p><label>Username: </label>{{form.username}}</p>
+                        </div>
+                        <div class="field input-field">
+                            <p><label>Email: </label>{{form.email}}</p>
+                        </div>
+
+                        <div class="field input-field">
+                            <p><label>Create password: </label>{{form.password1}}</p>
+                        </div>
+
+                        <div class="field input-field">
+                            <p><label>Confirm password: </label>{{form.password2}}</p>
+                        </div>
+
+
+                        <div class="field button-field">
+                            <input type="submit" value="Signup"/>
+                        </div>
                     </form>
 
                     <div class="form-link">
-                        <span>Already have an account? <a href="#" class="link login-link">Login</a></span>
+                        <span>Already have an account? <a href="{% url 'login' %}" class="">Login</a></span>
                     </div>
                 </div>
             </div>
